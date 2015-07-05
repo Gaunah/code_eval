@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string>
 #include <string.h>
-#include <vector>
 
 
 void print(int x, int y, int count){
