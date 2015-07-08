@@ -6,7 +6,13 @@
 
 
 void find_smallest_mulltiple(int x, int n){
-	std::cout << "x: " << x << " n: " << n << std::endl;	
+	int out, factor = 1;
+	while(true){
+		out = n * factor;
+		if(out >= x) { break; }	
+		factor++;
+	}	
+	std::cout << out << std::endl;
 }
 
 int main(int argc, char* argv[]){
@@ -18,9 +24,9 @@ int main(int argc, char* argv[]){
 	std::ifstream file(argv[1]); //get filename and open
 	if(file.is_open()){
 		std::string line, x, n;
-		while(std::getline(file, line)){
+		while(std::getline(file, line)){ //read line by line
 			std::stringstream ss(line);
-			std::getline(ss, x, ',');
+			std::getline(ss, x, ','); //get token
 			std::getline(ss, n, ',');
 			find_smallest_mulltiple(atoi(x.c_str()), atoi(n.c_str()));
 		}
