@@ -7,10 +7,10 @@
 #include <vector>
 
 
-void print_backwards(std::vector<std::string> words){
+void const print_backwards(const std::vector<std::string> &words){
 	if(words.size() == 0){ return; }
 	std::string str;
-	std::vector<std::string>::reverse_iterator rit = words.rbegin();
+	std::vector<std::string>::const_reverse_iterator rit = words.rbegin();
 	for(; rit != words.rend(); rit++){
 		str += *rit + " ";
 	}	

@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-void print(int x, int y, int count){
+void const print(int x, int y, int count){
 	for(int i = 1; i <= count; i++){
 		if(i % x == 0) { std::cout << "F"; }
 		if(i % y == 0) { std::cout << "B"; }

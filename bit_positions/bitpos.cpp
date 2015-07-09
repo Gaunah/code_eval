@@ -5,7 +5,7 @@
 #include <string>
 
 
-void bitpos(int n, int p1, int p2) {
+void const bitpos(int n, int p1, int p2) {
 	std::cout << "n: " << n << " p1: " << p1 << " p2: " << p2 << std::endl;
 }
 
