@@ -6,7 +6,9 @@
 
 
 void const bitpos(int n, int p1, int p2) {
-	std::cout << "n: " << n << " p1: " << p1 << " p2: " << p2 << std::endl;
+	bool b1 = (n & (1 << (p1-1)));
+	bool b2 = (n & (1 << (p2-1)));
+	std::cout << (b1 == b2 ? "true" : "false") << std::endl;
 }
 
 int main(int argc, char* argv[]){
