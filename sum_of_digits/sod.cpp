@@ -4,8 +4,12 @@
 #include <string>
 
 
-void const sum(std::string str) {
-	
+void const sum(std::string const &str) {
+	int sum = 0;
+	for(char const c : str){
+		sum += (c - '0');
+	}	
+	std::cout << sum << std::endl;
 }
 
 int main(int argc, char* argv[]){
