@@ -6,12 +6,12 @@
 #include <vector>
 
 
-void intersect(std::vector<int> v1, std::vector<int> v2){
-	for(int i = 0; i < v1.size(); i++){
+void intersect(std::vector<int> &v1, std::vector<int> &v2){
+	for(unsigned int i = 0; i < v1.size(); i++){
 		std::cout << v1[i] << " ";
 	}
 	std::cout << "| ";
-	for(int i = 0; i < v2.size(); i++){
+	for(unsigned int i = 0; i < v2.size(); i++){
 		std::cout << v2[i] << " ";
 	}
 	std::cout << std::endl;
@@ -26,8 +26,8 @@ int main(int argc, char* argv[]){
 	std::ifstream file(argv[1]); //get filename and open
 	if(file.is_open()){
 		std::string line, set1, set2;
-		std::vector<int> v1, v2;
 		while(std::getline(file, line)){ //read line by line
+			std::vector<int> v1, v2;
 			std::stringstream ss(line);
 			std::getline(ss, set1, ';'); //get token
 			std::getline(ss, set2, ';');
