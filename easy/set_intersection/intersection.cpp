@@ -4,17 +4,19 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 
-void intersect(std::vector<int> v1, std::vector<int> v2){
-	for(int i = 0; i < v1.size(); i++){
-		std::cout << v1[i] << " ";
+void intersect(std::vector<int> &v1, std::vector<int> &v2){
+	using namespace std;
+	vector<int> intersect_v;
+	set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), back_inserter(intersect_v));
+	sort(intersect_v.begin(), intersect_v.end());
+	for(unsigned int i = 0; i < intersect_v.size(); i++){
+		cout << intersect_v[i];
+		if(i != intersect_v.size()-1){ cout << ','; }
 	}
-	std::cout << "| ";
-	for(int i = 0; i < v2.size(); i++){
-		std::cout << v2[i] << " ";
-	}
-	std::cout << std::endl;
+	cout << endl;
 }
 
 int main(int argc, char* argv[]){
@@ -26,8 +28,8 @@ int main(int argc, char* argv[]){
 	std::ifstream file(argv[1]); //get filename and open
 	if(file.is_open()){
 		std::string line, set1, set2;
-		std::vector<int> v1, v2;
 		while(std::getline(file, line)){ //read line by line
+			std::vector<int> v1, v2;
 			std::stringstream ss(line);
 			std::getline(ss, set1, ';'); //get token
 			std::getline(ss, set2, ';');
