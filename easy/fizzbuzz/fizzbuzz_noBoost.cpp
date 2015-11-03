@@ -1,8 +1,8 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <stdlib.h>
-#include <string>
 #include <string.h>
+#include <string>
 
 
 void const print(int x, int y, int count){

@@ -1,10 +1,10 @@
-#include <iostream>
+#include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 
 void intersect(std::vector<int> &v1, std::vector<int> &v2){
