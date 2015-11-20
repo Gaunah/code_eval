@@ -1,17 +1,16 @@
 #include <algorithm>
-#include <vector>
 #include <fstream>
 #include <iostream>
-#include <stdlib.h>
 #include <string>
+#include <vector>
 
-bool compare(std::string const a, std::string const b){ 
+bool StrCompare(std::string const a, std::string const b){ 
 	return a.length() > b.length();
 }
 
 void PrintLongestLines(std::vector<std::string> &lines, int const &count){
 	using namespace std;
-	std::sort(lines.begin(), lines.end(), compare);
+	std::sort(lines.begin(), lines.end(), StrCompare);
 	for(int i = 0; i < count; i++){
 		cout << lines[i] << endl;
 	}
@@ -20,14 +19,14 @@ void PrintLongestLines(std::vector<std::string> &lines, int const &count){
 int main(int argc, char* argv[]){
 	if(argc != 2){
 		std::cerr << "usage: ./longest_line <filename>" << std::endl;
-		return EXIT_FAILURE;
+		return -1;
 	}
 
 	std::ifstream file(argv[1]); //get filename and open
 	if(file.is_open()){
 		std::string line, n;
 		std::getline(file, n);
-		int count = std::stoi(n); //how many lines to print
+		int count = std::atoi(n.c_str()); //how many lines to print
 		std::vector<std::string> lines;
 		while(std::getline(file, line)){ //read line by line
 			lines.push_back(line);
@@ -35,7 +34,7 @@ int main(int argc, char* argv[]){
 		PrintLongestLines(lines, count);
 	} else {
 		std::cerr << "could not open file: " << argv[1] << std::endl;
-		return EXIT_FAILURE;
+		return -1;
 	}
-	return EXIT_SUCCESS;
+	return 0;
 }
