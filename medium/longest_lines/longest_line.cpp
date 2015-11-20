@@ -5,8 +5,13 @@
 #include <stdlib.h>
 #include <string>
 
+bool compare(std::string const a, std::string const b){ 
+	return a.length() > b.length();
+}
+
 void PrintLongestLines(std::vector<std::string> &lines, int const &count){
 	using namespace std;
+	std::sort(lines.begin(), lines.end(), compare);
 	for(int i = 0; i < count; i++){
 		cout << lines[i] << endl;
 	}
