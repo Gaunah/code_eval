@@ -1,15 +1,16 @@
-#include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <list>
 #include <sstream>
 #include <stdlib.h>
-#include <vector>
+#include <string>
 
-std::vector<int> clean(std::vector<int> const &v){
-	std::vector<int>::iterator it;
-	//it = std::unique(v.begin(), v.end());
-	//v.resize(std::distance(v.begin(), it));
-	return v;
+void printList(std::list<int> const &l){
+	std::string str;
+	for(int val : l){
+		str += std::to_string(val) + ",";
+	}
+	std::cout << str.substr(0, str.size()-1) <<std::endl;
 }
 
 int main(int argc, char* argv[]){
@@ -23,11 +24,12 @@ int main(int argc, char* argv[]){
 		std::string line, number;
 		while(std::getline(file, line)){ //read line by line
 			std::stringstream ss(line);
-			std::vector<int> v;
+			std::list<int> numberList;
 			while(std::getline(ss, number, ',')){ //push the numbers in a vector
-				v.push_back(atoi(number.c_str()));
+				numberList.push_back(atoi(number.c_str()));
 			}
-			//TODO
+			numberList.unique();
+			printList(numberList);
 		}
 		file.close();
 	} else {
