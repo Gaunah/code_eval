@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-bool StrCompare(std::string const a, std::string const b){ 
+bool StrCompare(std::string const &a, std::string const &b){ 
 	return a.length() > b.length();
 }
 

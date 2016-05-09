@@ -11,7 +11,7 @@ void const print_backwards(const std::vector<std::string> &words){
 	if(words.size() == 0){ return; }
 	std::string str;
 	std::vector<std::string>::const_reverse_iterator rit = words.rbegin();
-	for(; rit != words.rend(); rit++){
+	for(; rit != words.rend(); ++rit){
 		str += *rit + " ";
 	}	
 	std::cout << str.erase(str.find_last_not_of(" ")+1) << std::endl;
